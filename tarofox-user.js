@@ -40,10 +40,8 @@ user_pref('media.ffmpeg.vaapi.enabled', true);
 user_pref('network.dns.disablePrefetch', true);
 user_pref('network.http.speculative-parallel-limit', 0);
 user_pref('network.dns.disablePrefetchFromHTTPS', true);
-user_pref('network.dnsCacheEntries', 51200); //200000
-user_pref('network.dnsCacheEntries', 51200);
-user_pref('network.dnsCacheExpiration', 86400); //3600
-user_pref('network.dnsCacheExpiration', 86400);
+user_pref('network.dnsCacheEntries', 200000); //200000
+user_pref('network.dnsCacheExpiration', 3600); //3600
 user_pref('network.dnsCacheExpirationGracePeriod', 240);
 user_pref('network.predictor.enable-hover-on-ssl', true);
 user_pref('network.predictor.enable-prefetch', false);
@@ -286,8 +284,8 @@ user_pref('extensions.formautofill.creditCards.enabled', false);
 user_pref('network.buffer.cache.size', 327680); // preferred=327680; default=32768 past: 262144
 user_pref('network.buffer.cache.count', 240); // preferred=240; default=24 past: 128
 
-user_pref('nglayout.initialpaint.delay', 3); // default=5; used to be 250
-user_pref('nglayout.initialpaint.delay_in_oopif', 2); // default=5
+user_pref('nglayout.initialpaint.delay', 300); // default=5; used to be 250
+user_pref('nglayout.initialpaint.delay_in_oopif', 5); // default=5
 user_pref('media.cache_size', 2048000); // default=512000
 user_pref('identity.fxaccounts.enabled', false);
 
@@ -529,14 +527,14 @@ user_pref('userchrome.floating-findbar-on-right.enabled', true);
  * general.smoothScroll.lines.durationMaxMS
  */
 //MS Edge smooth scrolling (not using msdPhysics)
-user_pref('general.smoothScroll.lines.durationMaxMS', 250); //400
-user_pref('general.smoothScroll.lines.durationMinMS', 250); //300
+user_pref('general.smoothScroll.lines.durationMaxMS', 350); //400
+user_pref('general.smoothScroll.lines.durationMinMS', 350); //300
 user_pref('general.smoothScroll.mouseWheel.durationMaxMS', 200); //200
 user_pref('general.smoothScroll.mouseWheel.durationMinMS', 250); //250
 user_pref('general.smoothScroll.other.durationMaxMS', 300);
-user_pref('general.smoothScroll.other.durationMinMS', 250); //350
-user_pref('general.smoothScroll.pages.durationMaxMS', 200);
-user_pref('general.smoothScroll.pages.durationMinMS', 200); //250
+user_pref('general.smoothScroll.other.durationMinMS', 350); //350
+user_pref('general.smoothScroll.pages.durationMaxMS', 300);
+user_pref('general.smoothScroll.pages.durationMinMS', 300); //250
 user_pref('general.smoothScroll.scrollbars.durationMaxMS', 400);
 user_pref('general.smoothScroll.scrollbars.durationMinMS', 400); //300
 //user_pref("browser.cache.offline.enable", true); // o Offline cache
@@ -546,9 +544,9 @@ user_pref('toolkit.scrollbox.horizontalScrollDistance', 4);
 user_pref('toolkit.scrollbox.verticalScrollDistance', 4);
 user_pref('general.smoothScroll.pixels.durationMaxMS', 300); //600OP SETTINGS
 user_pref('general.smoothScroll.pixels.durationMinMS', 300); //OP SETTINGS//250
-user_pref('general.smoothScroll.stopDecelerationWeighting', '0.0'); // NSS  "0.0"          reduce stutter             [0.4]
-user_pref('mousewheel.acceleration.factor', 3); //       10 //ENABKE
-user_pref('mousewheel.acceleration.start', 3); //       -1
+user_pref('general.smoothScroll.stopDecelerationWeighting', '0.2'); // NSS  "0.4"          reduce stutter             [0.4]
+user_pref('mousewheel.acceleration.factor', 2); //       10 //ENABKE
+user_pref('mousewheel.acceleration.start', -1); //       -1
 user_pref('mousewheel.default.delta_multiplier_x', 100); //      100
 user_pref('mousewheel.default.delta_multiplier_y', 100); //NSS    [100]
 user_pref('mousewheel.default.delta_multiplier_z', 100); //      100
@@ -557,7 +555,7 @@ user_pref('apz.force_disable_desktop_zooming_scrollbars', true); // false
 user_pref('apz.paint_skipping.enabled', false); ///     true
 user_pref('apz.windows.use_direct_manipulation', true); //     true
 user_pref('dom.event.wheel-deltaMode-lines.always-disabled', true); //   false
-user_pref('general.smoothScroll.durationToIntervalRatio', 400); //      200
+user_pref('general.smoothScroll.durationToIntervalRatio', 150); //      200
 user_pref('general.smoothScroll.mouseWheel.migrationPercent', 100); //     100
 user_pref('layers.async-pan-zoom.enabled', true); ///     true
 user_pref('layout.css.scroll-behavior.spring-constant', '300.0'); //   "250.0"
@@ -565,17 +563,17 @@ user_pref('layout.css.scroll-behavior.spring-constant', '300.0'); //   "250.0"
 user_pref('dom.image-lazy-loading.enabled', true);
 ///  NATURAL SMOOTH SCROLLING V4 "SHARP" - AveYo, 2020-2022             preset     [default]
 ///  copy into firefox/librewolf profile as user.js, add to existing, or set in about:config
-user_pref('general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS', 120); //NSS    [120]
-user_pref('general.smoothScroll.msdPhysics.enabled', false); //NSS  [false]
-user_pref('general.smoothScroll.msdPhysics.motionBeginSpringConstant', 200); //NSS   [1250]
+user_pref('general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS', 150); //NSS    [120]
+user_pref('general.smoothScroll.msdPhysics.enabled', true); //NSS  [false]
+user_pref('general.smoothScroll.msdPhysics.motionBeginSpringConstant', 800); //NSS   [1250]
 //user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 250); //NSS   [1000]
-user_pref('general.smoothScroll.msdPhysics.regularSpringConstant', 300);
+user_pref('general.smoothScroll.msdPhysics.regularSpringConstant', 400);
 //user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25); //NSS     [12]
 user_pref('general.smoothScroll.msdPhysics.slowdownMinDeltaMS', 30);
 user_pref('general.smoothScroll.msdPhysics.slowdownMinDeltaRatio', 2.0); //NSS    [1.3]
 //user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 450); //NSS default 250  [2000]
-user_pref('general.smoothScroll.msdPhysics.slowdownSpringConstant', 500);
-user_pref('general.smoothScroll.currentVelocityWeighting', '0.5'); //NSS ["0.25"]
+user_pref('general.smoothScroll.msdPhysics.slowdownSpringConstant', 600);
+user_pref('general.smoothScroll.currentVelocityWeighting', '0.15'); //NSS ["0.25"]
 user_pref('browser.urlbar.openintab', true);
 user_pref('browser.search.openintab', true);
 user_pref('devtools.debugger.prompt-connection', false);
