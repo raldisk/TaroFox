@@ -529,15 +529,15 @@ user_pref('userchrome.floating-findbar-on-right.enabled', true);
  * general.smoothScroll.lines.durationMaxMS
  */
 //MS Edge smooth scrolling (not using msdPhysics)
-user_pref('general.smoothScroll.lines.durationMaxMS', 150); //400
-user_pref('general.smoothScroll.lines.durationMinMS', 80); //300
-user_pref('general.smoothScroll.mouseWheel.durationMaxMS', 250); //200
+user_pref('general.smoothScroll.lines.durationMaxMS', 250); //400
+user_pref('general.smoothScroll.lines.durationMinMS', 250); //300
+user_pref('general.smoothScroll.mouseWheel.durationMaxMS', 200); //200
 user_pref('general.smoothScroll.mouseWheel.durationMinMS', 250); //250
-user_pref('general.smoothScroll.other.durationMaxMS', 150);
-user_pref('general.smoothScroll.other.durationMinMS', 150); //350
-user_pref('general.smoothScroll.pages.durationMaxMS', 700);
-user_pref('general.smoothScroll.pages.durationMinMS', 650); //250
-user_pref('general.smoothScroll.scrollbars.durationMaxMS', 500);
+user_pref('general.smoothScroll.other.durationMaxMS', 300);
+user_pref('general.smoothScroll.other.durationMinMS', 250); //350
+user_pref('general.smoothScroll.pages.durationMaxMS', 200);
+user_pref('general.smoothScroll.pages.durationMinMS', 200); //250
+user_pref('general.smoothScroll.scrollbars.durationMaxMS', 400);
 user_pref('general.smoothScroll.scrollbars.durationMinMS', 400); //300
 //user_pref("browser.cache.offline.enable", true); // o Offline cache
 
@@ -547,8 +547,8 @@ user_pref('toolkit.scrollbox.verticalScrollDistance', 4);
 user_pref('general.smoothScroll.pixels.durationMaxMS', 300); //600OP SETTINGS
 user_pref('general.smoothScroll.pixels.durationMinMS', 300); //OP SETTINGS//250
 user_pref('general.smoothScroll.stopDecelerationWeighting', '0.0'); // NSS  "0.0"          reduce stutter             [0.4]
-user_pref('mousewheel.acceleration.factor', 1); //       10 //ENABKE
-user_pref('mousewheel.acceleration.start', -1); //       -1
+user_pref('mousewheel.acceleration.factor', 3); //       10 //ENABKE
+user_pref('mousewheel.acceleration.start', 3); //       -1
 user_pref('mousewheel.default.delta_multiplier_x', 100); //      100
 user_pref('mousewheel.default.delta_multiplier_y', 100); //NSS    [100]
 user_pref('mousewheel.default.delta_multiplier_z', 100); //      100
@@ -557,8 +557,8 @@ user_pref('apz.force_disable_desktop_zooming_scrollbars', true); // false
 user_pref('apz.paint_skipping.enabled', false); ///     true
 user_pref('apz.windows.use_direct_manipulation', true); //     true
 user_pref('dom.event.wheel-deltaMode-lines.always-disabled', true); //   false
-user_pref('general.smoothScroll.durationToIntervalRatio', 350); //      200
-user_pref('general.smoothScroll.mouseWheel.migrationPercent', 0); //     100
+user_pref('general.smoothScroll.durationToIntervalRatio', 400); //      200
+user_pref('general.smoothScroll.mouseWheel.migrationPercent', 100); //     100
 user_pref('layers.async-pan-zoom.enabled', true); ///     true
 user_pref('layout.css.scroll-behavior.spring-constant', '300.0'); //   "250.0"
 //test
@@ -566,31 +566,25 @@ user_pref('dom.image-lazy-loading.enabled', true);
 ///  NATURAL SMOOTH SCROLLING V4 "SHARP" - AveYo, 2020-2022             preset     [default]
 ///  copy into firefox/librewolf profile as user.js, add to existing, or set in about:config
 user_pref('general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS', 120); //NSS    [120]
-user_pref('general.smoothScroll.msdPhysics.enabled', true); //NSS  [false]
+user_pref('general.smoothScroll.msdPhysics.enabled', false); //NSS  [false]
 user_pref('general.smoothScroll.msdPhysics.motionBeginSpringConstant', 200); //NSS   [1250]
 //user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 250); //NSS   [1000]
 user_pref('general.smoothScroll.msdPhysics.regularSpringConstant', 300);
 //user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25); //NSS     [12]
 user_pref('general.smoothScroll.msdPhysics.slowdownMinDeltaMS', 30);
 user_pref('general.smoothScroll.msdPhysics.slowdownMinDeltaRatio', 2.0); //NSS    [1.3]
-
 //user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 450); //NSS default 250  [2000]
 user_pref('general.smoothScroll.msdPhysics.slowdownSpringConstant', 500);
-user_pref('general.smoothScroll.currentVelocityWeighting', '0.25'); //NSS ["0.25"]
+user_pref('general.smoothScroll.currentVelocityWeighting', '0.5'); //NSS ["0.25"]
 user_pref('browser.urlbar.openintab', true);
 user_pref('browser.search.openintab', true);
 user_pref('devtools.debugger.prompt-connection', false);
 user_pref('browser.display.use_system_colors', false);
 user_pref('gfx.direct3d11.reuse-decoder-device', false);
 user_pref('media.wmf.zero-copy-nv12-textures', false);
-//new
 user_pref('toolkit.scrollbox.scrollIncrement', 100); // Adjust this value to your preference
-
 user_pref('general.smoothScroll.curve', 'easeInOutCubic');
-
 user_pref('general.smoothScroll.stopDecelerationAfterTouchWeighting', '0.3');
-//FINAL CONFIGS
-///june15
 user_pref('apz.overscroll.enabled', true); // DEFAULT NON-LINUX
 user_pref('general.smoothScroll', true);
 user_pref(
@@ -846,7 +840,7 @@ user_pref('browser.search.update', true); // o Search engine updates - ebay need
 user_pref('browser.uitour.enabled', false); // o Firefox Tour
 user_pref('browser.urlbar.autoFill', false); // x Disable urlbar autofill with domain extension
 user_pref('browser.urlbar.speculativeConnect.enabled', false); // o Speculative connections from urlbar
-user_pref('browser.urlbar.suggest.searches', false); // o Previous searches suggestions
+user_pref('browser.urlbar.suggest.searches', true); // o Previous searches suggestions
 user_pref('browser.urlbar.suggest.engines', false); // o Search engines in the urlbar (tab2search)
 //user_pref("browser.urlbar.update2.oneOffsRefresh", false);                               // o Search in alternative engine v83 new annoyance
 user_pref('extensions.getAddons.showPane', false); // o Get Add-ons recommendations
@@ -901,3 +895,5 @@ https://msfn.org/board/topic/31820-firefox-10-help-nglayoutinitialpaintdelay/
 https://www.linuxquestions.org/questions/linux-software-2/nglayout-initialpaint-delay-in-firefox-3-x-x-823170/
 
  */
+
+user_pref('signon.firefoxRelay.feature', ''); // unselect suggestions from Firefox Relay for clean UI
