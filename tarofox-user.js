@@ -134,8 +134,8 @@ user_pref('privacy.history.custom', true);
 user_pref('browser.search.separatePrivateDefault.ui.enabled', true);
 user_pref('browser.urlbar.update2.engineAliasRefresh', true);
 user_pref('browser.search.suggest.enabled', true);
-user_pref('browser.urlbar.suggest.quicksuggest.sponsored', false);
-user_pref('browser.urlbar.suggest.quicksuggest.nonsponsored', false);
+//user_pref('browser.urlbar.suggest.quicksuggest.sponsored', false);
+//user_pref('browser.urlbar.suggest.quicksuggest.nonsponsored', false);
 user_pref('browser.formfill.enable', false);
 user_pref('security.insecure_connection_text.enabled', true);
 user_pref('security.insecure_connection_text.pbmode.enabled', true);
@@ -244,13 +244,13 @@ user_pref('cookiebanners.service.mode', 1);
 user_pref('cookiebanners.service.mode.privateBrowsing', 1);
 
 //Full screen fade faster:
-user_pref('full-screen-api.transition-duration.enter', '50 50');
-user_pref('full-screen-api.transition-duration.leave', '50 50');
+user_pref("full-screen-api.transition-duration.enter", "0 0");                             // o Full-screen entering transition off      [200 200]
+user_pref("full-screen-api.transition-duration.leave", "1 0");                             // x Full-screen leaving transition minimum   [200 200]
 user_pref('full-screen-api.warning.delay', 0);
 user_pref('full-screen-api.warning.timeout', 0);
 
 /** URL BAR ***/
-user_pref('browser.urlbar.suggest.calculator', false);
+//user_pref('browser.urlbar.suggest.calculator', false);
 user_pref('browser.urlbar.unitConversion.enabled', false);
 user_pref('browser.urlbar.trending.featureGate', false);
 
@@ -275,7 +275,6 @@ user_pref('findbar.highlightAll', true);
 user_pref('layout.word_select.eat_space_to_next_word', false);
 user_pref('privacy.partition.network_state', false);
 user_pref('browser.safebrowsing.blockedURIs.enabled', false);
-
 user_pref('network.ftp.enabled', true);
 user_pref('media.gmp-provider.enabled', false);
 user_pref('media.peerconnection.ice.no_host', true);
@@ -283,18 +282,14 @@ user_pref('extensions.formautofill.addresses.enabled', false);
 user_pref('extensions.formautofill.creditCards.enabled', false);
 user_pref('network.buffer.cache.size', 327680); // preferred=327680; default=32768 past: 262144
 user_pref('network.buffer.cache.count', 240); // preferred=240; default=24 past: 128
-
-user_pref('nglayout.initialpaint.delay', 300); // default=5; used to be 250
-user_pref('nglayout.initialpaint.delay_in_oopif', 5); // default=5
+user_pref('nglayout.initialpaint.delay', 3000); // default=5; used to be 250
+user_pref('nglayout.initialpaint.delay_in_oopif', 300); // default=5
 user_pref('media.cache_size', 2048000); // default=512000
 user_pref('identity.fxaccounts.enabled', false);
-
-//JUNE 9 OVERRIDE
 user_pref('geo.provider.ms-windows-location', false); // [WINDOWS]
 // Disable region updates
 user_pref('browser.region.network.url', ''); // [FF78+] Defense-in-depth
 user_pref('browser.region.update.enabled', false); // [FF79+]
-
 // Disable contentblocking reports
 user_pref('browser.contentblocking.reportBreakage.url', '');
 user_pref('browser.contentblocking.report.cookie.url', '');
@@ -378,8 +373,6 @@ user_pref('privacy.resistFingerprinting', false); // [FF41+]
 user_pref('fission.autostart', false);
 user_pref('privacy.fingerprintingProtection', true);
 user_pref('privacy.resistFingerprinting.randomization.enabled', true);
-
-//JUNE 10
 user_pref('geo.provider.network.url', '');
 user_pref('geo.provider.network.logging.enabled', true); // [HIDDEN PREF]
 user_pref('privacy.resistFingerprinting.pbmode', true); // [FF114+]
@@ -422,8 +415,6 @@ user_pref('extensions.getAddons.cache.enabled', false);
 // -------------------------------------
 // Disable search engine updates (e.g. OpenSearch)
 user_pref('browser.search.update', false);
-
-//update 5am
 user_pref('network.predictor.max-resources-per-entry', 350); // default=100
 user_pref('network.predictor.max-uri-length', 1500); // default=500
 // Set new window size rounding max values [FF55+]
@@ -432,8 +423,6 @@ user_pref('privacy.window.maxInnerHeight', 900);
 user_pref('privacy.clearOnShutdown.cache', false);
 user_pref('privacy.clearOnShutdown.cookies', false); // Cookies
 user_pref('browser.ping-centre.telemetry', false);
-
-//JUNE 10 7AM
 // PREF: assorted telemetry
 // [NOTE] Shouldn't be needed for user.js, but browser forks
 // may want to disable these prefs.
@@ -452,25 +441,25 @@ user_pref('browser.display.focus_ring_on_anything', true);
 user_pref('browser.display.focus_ring_style', 0);
 user_pref('browser.display.focus_ring_width', 0);
 //
-user_pref('gfx.font_rendering.cleartype_params.gamma', 1750);
-user_pref('gfx.font_rendering.cleartype_params.gamma', 1600);
-user_pref('gfx.font_rendering.cleartype_params.enhanced_contrast', 100);
-user_pref('gfx.font_rendering.cleartype_params.pixel_structure', 5); //default 1
+//user_pref('gfx.font_rendering.cleartype_params.gamma', 1550);
+//user_pref('gfx.font_rendering.cleartype_params.gamma', 1400);
+//user_pref('gfx.font_rendering.cleartype_params.enhanced_contrast', 100);
+//user_pref('gfx.font_rendering.cleartype_params.pixel_structure', 5); //default 1
 // PREF: use DirectWrite everywhere like Chrome [WINDOWS]
 // [1] https://kb.mozillazine.org/Thunderbird_6.0,_etc.#Font_rendering_and_performance_issues
 // [2] https://reddit.com/r/firefox/comments/wvs04y/comment/ilklzy1/?context=3
 
-user_pref('gfx.font_rendering.cleartype_params.rendering_mode', 5);
+//user_pref('gfx.font_rendering.cleartype_params.rendering_mode', 5);
 //
-user_pref('gfx.font_rendering.cleartype_params.cleartype_level', 20);
-user_pref(
+//user_pref('gfx.font_rendering.cleartype_params.cleartype_level', 20);
+/*user_pref(
     'gfx.font_rendering.cleartype_params.force_gdi_classic_for_families',
     '',
-);
+);*/
 
 //
-user_pref('gfx.font_rendering.cleartype_params.force_gdi_classic_max_size', 6);
-user_pref('gfx.font_rendering.directwrite.use_gdi_table_loading', false);
+//user_pref('gfx.font_rendering.cleartype_params.force_gdi_classic_max_size', 6);
+//user_pref('gfx.font_rendering.directwrite.use_gdi_table_loading', false);
 // PREF: disable ALT key toggling the menu bar
 user_pref('ui.key.menuAccessKeyFocuses', false);
 user_pref('content.notify.ontimer', true); // DEFAULT
@@ -479,8 +468,8 @@ user_pref('browser.startup.preXulSkeletonUI', false);
 user_pref('dom.iframe_lazy_loading.enabled', true); //
 user_pref('browser.sessionhistory.max_total_viewers', 4);
 user_pref('network.http.pacing.requests.burst', 20); // default=10
-user_pref('dom.ipc.processCount', 4); // DEFAULT; Shared Web Content
-user_pref('dom.ipc.processCount.webIsolated', 2); // default=4; Isolated Web Content
+user_pref('dom.ipc.processCount', 3); // DEFAULT; Shared Web Content
+user_pref('dom.ipc.processCount.webIsolated', 3); // default=4; Isolated Web Content
 //user_pref("dom.ipc.processPrelaunch.fission.number", 1); // default=3; Process Preallocation Cache
 
 user_pref('apz.frame_delay.enabled', false);
@@ -490,16 +479,12 @@ user_pref('browser.tabs.closeWindowWithLastTab', false);
 user_pref('browser.tabs.tabClipWidth', 999);
 user_pref('network.http.rcwn.enabled', false);
 user_pref('toolkit.legacyUserProfileCustomizations.stylesheets', true);
-
 user_pref('browser.firefox-view.search.enabled', true);
 user_pref('browser.firefox-view.virtual-list.enabled', true);
-
-//update june 11 arkenoxtoolkit.scrollbox.verticalScrollDistanc
 user_pref('network.gio.supported-protocols', '');
 user_pref('network.proxy.failover_direct', false);
 user_pref('security.ssl.require_safe_negotiation', true);
 user_pref('dom.security.https_only_mode_send_http_background_request', false);
-
 user_pref('gfx.font_rendering.graphite.enabled', false);
 user_pref('javascript.options.asmjs', false);
 user_pref('javascript.options.ion', false);
@@ -518,7 +503,6 @@ user_pref('security.ssl3.rsa_aes_256_gcm_sha384', false); // no PFS
 user_pref('security.ssl3.rsa_aes_128_sha', false); // no PFS
 user_pref('security.ssl3.rsa_aes_256_sha', false); // no PFS
 user_pref('privacy.query_stripping.enabled', true); // [FF101+]
-
 user_pref('layout.css.font-visibility.trackingprotection', 1);
 user_pref('userchrome.floating-findbar-on-right.enabled', true);
 /*
@@ -527,23 +511,22 @@ user_pref('userchrome.floating-findbar-on-right.enabled', true);
  * general.smoothScroll.lines.durationMaxMS
  */
 //MS Edge smooth scrolling (not using msdPhysics)
-user_pref('general.smoothScroll.lines.durationMaxMS', 350); //400
-user_pref('general.smoothScroll.lines.durationMinMS', 350); //300
-user_pref('general.smoothScroll.mouseWheel.durationMaxMS', 200); //200
+user_pref('general.smoothScroll.lines.durationMaxMS', 450); //400
+user_pref('general.smoothScroll.lines.durationMinMS', 300); //300
+user_pref('general.smoothScroll.mouseWheel.durationMaxMS', 300); //200
 user_pref('general.smoothScroll.mouseWheel.durationMinMS', 250); //250
-user_pref('general.smoothScroll.other.durationMaxMS', 300);
-user_pref('general.smoothScroll.other.durationMinMS', 350); //350
-user_pref('general.smoothScroll.pages.durationMaxMS', 300);
-user_pref('general.smoothScroll.pages.durationMinMS', 300); //250
-user_pref('general.smoothScroll.scrollbars.durationMaxMS', 400);
-user_pref('general.smoothScroll.scrollbars.durationMinMS', 400); //300
-//user_pref("browser.cache.offline.enable", true); // o Offline cache
-
+user_pref('general.smoothScroll.other.durationMaxMS', 400);
+user_pref('general.smoothScroll.other.durationMinMS', 300); //350
+user_pref('general.smoothScroll.pages.durationMaxMS', 350);
+user_pref('general.smoothScroll.pages.durationMinMS', 250); //250
+user_pref('general.smoothScroll.scrollbars.durationMaxMS', 500);
+user_pref('general.smoothScroll.scrollbars.durationMinMS', 300); //300
+user_pref("browser.cache.offline.enable", true); // o Offline cache
 user_pref('mousewheel.min_line_scroll_amount', 10);
-user_pref('toolkit.scrollbox.horizontalScrollDistance', 4);
-user_pref('toolkit.scrollbox.verticalScrollDistance', 4);
-user_pref('general.smoothScroll.pixels.durationMaxMS', 300); //600OP SETTINGS
-user_pref('general.smoothScroll.pixels.durationMinMS', 300); //OP SETTINGS//250
+user_pref('toolkit.scrollbox.horizontalScrollDistance', 3);
+user_pref('toolkit.scrollbox.verticalScrollDistance', 3);
+user_pref('general.smoothScroll.pixels.durationMaxMS', 450); //600OP SETTINGS
+user_pref('general.smoothScroll.pixels.durationMinMS', 350); //OP SETTINGS//250
 user_pref('general.smoothScroll.stopDecelerationWeighting', '0.2'); // NSS  "0.4"          reduce stutter             [0.4]
 user_pref('mousewheel.acceleration.factor', 2); //       10 //ENABKE
 user_pref('mousewheel.acceleration.start', -1); //       -1
@@ -555,24 +538,24 @@ user_pref('apz.force_disable_desktop_zooming_scrollbars', true); // false
 user_pref('apz.paint_skipping.enabled', false); ///     true
 user_pref('apz.windows.use_direct_manipulation', true); //     true
 user_pref('dom.event.wheel-deltaMode-lines.always-disabled', true); //   false
-user_pref('general.smoothScroll.durationToIntervalRatio', 150); //      200
+user_pref('general.smoothScroll.durationToIntervalRatio', 300); //      200
 user_pref('general.smoothScroll.mouseWheel.migrationPercent', 100); //     100
-user_pref('layers.async-pan-zoom.enabled', true); ///     true
-user_pref('layout.css.scroll-behavior.spring-constant', '300.0'); //   "250.0"
+user_pref('layers.async-pan-zoom.enabled', false); ///     true
+user_pref('layout.css.scroll-behavior.spring-constant', '250.0'); //   "250.0"
 //test
 user_pref('dom.image-lazy-loading.enabled', true);
 ///  NATURAL SMOOTH SCROLLING V4 "SHARP" - AveYo, 2020-2022             preset     [default]
 ///  copy into firefox/librewolf profile as user.js, add to existing, or set in about:config
-user_pref('general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS', 150); //NSS    [120]
+user_pref('general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS', 100); //NSS    [120]
 user_pref('general.smoothScroll.msdPhysics.enabled', true); //NSS  [false]
-user_pref('general.smoothScroll.msdPhysics.motionBeginSpringConstant', 800); //NSS   [1250]
+user_pref('general.smoothScroll.msdPhysics.motionBeginSpringConstant', 400); //NSS   [1250]
 //user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 250); //NSS   [1000]
-user_pref('general.smoothScroll.msdPhysics.regularSpringConstant', 400);
+user_pref('general.smoothScroll.msdPhysics.regularSpringConstant', 450);
 //user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25); //NSS     [12]
-user_pref('general.smoothScroll.msdPhysics.slowdownMinDeltaMS', 30);
+user_pref('general.smoothScroll.msdPhysics.slowdownMinDeltaMS', 15);
 user_pref('general.smoothScroll.msdPhysics.slowdownMinDeltaRatio', 2.0); //NSS    [1.3]
 //user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 450); //NSS default 250  [2000]
-user_pref('general.smoothScroll.msdPhysics.slowdownSpringConstant', 600);
+user_pref('general.smoothScroll.msdPhysics.slowdownSpringConstant', 200);
 user_pref('general.smoothScroll.currentVelocityWeighting', '0.15'); //NSS ["0.25"]
 user_pref('browser.urlbar.openintab', true);
 user_pref('browser.search.openintab', true);
@@ -580,7 +563,7 @@ user_pref('devtools.debugger.prompt-connection', false);
 user_pref('browser.display.use_system_colors', false);
 user_pref('gfx.direct3d11.reuse-decoder-device', false);
 user_pref('media.wmf.zero-copy-nv12-textures', false);
-user_pref('toolkit.scrollbox.scrollIncrement', 100); // Adjust this value to your preference
+user_pref('toolkit.scrollbox.scrollIncrement', 200); // Adjust this value to your preference
 user_pref('general.smoothScroll.curve', 'easeInOutCubic');
 user_pref('general.smoothScroll.stopDecelerationAfterTouchWeighting', '0.3');
 user_pref('apz.overscroll.enabled', true); // DEFAULT NON-LINUX
@@ -590,24 +573,20 @@ user_pref(
     "8000 syntax error: the parrot's crossed the Jordan",
 );
 
-//june 16
 /*
 /* 5010: disable location bar suggestion types
  * [SETTING] Search>Address Bar>When using the address bar, suggest ***/
-user_pref('browser.urlbar.suggest.history', true); //false
-user_pref('browser.urlbar.suggest.bookmark', false);
-user_pref('browser.urlbar.suggest.openpage', false);
+//user_pref('browser.urlbar.suggest.history', true); //false
+//user_pref('browser.urlbar.suggest.bookmark', false);
+//user_pref('browser.urlbar.suggest.openpage', false);
 
 user_pref('browser.urlbar.suggest.topsites', false); // [FF78+]
 /* 5011: disable location bar dropdown
  * This value controls the total number of entries to appear in the location bar dropdown ***/
-//user_pref("browser.urlbar.maxRichResults", 0);
+user_pref("browser.urlbar.maxRichResults", 10);
 /* 5012: disable location bar autofill
  * [1] https://support.mozilla.org/kb/address-bar-autocomplete-firefox#w_url-autocomplete ***/
-user_pref('browser.urlbar.autoFill', false);
-//new
 user_pref('toolkit.scrollbox.smoothScroll', true); //default=false
-//june/16
 user_pref('dom.battery.enabled', false);
 user_pref('media.navigator.enabled', false);
 user_pref('media.navigator.video.enabled', false);
@@ -661,14 +640,8 @@ user_pref('browser.slowStartup.samples', 2); // o Slow startup min samples [2]
 user_pref('dom.vibrator.enabled', false); // o Shaking the screen effect
 user_pref('ui.key.menuAccessKey', 0); // // Alt key does not toggle the menu bar
 user_pref('ui.systemUsesDarkTheme', 1); // / Fake system dark theme
-//user_pref("b", false);                                                   // / Encryption Media Extension for DRM (Netflix etc)
-//user_pref("media.gmp-gmpopenh264.autoupdate", false);                                    // / Cisco h264 decoder updating
-//user_pref("media.gmp-widevinecdm.autoupdate", false);                                    // / Google widevine decryption for DRM (Netflix etc)
-//user_pref("media.gmp-widevinecdm.enabled", false);                                       // / Google widevine decryption for DRM (Netflix etc)
-//user_pref("media.gmp-widevinecdm.visible", false);                                       // / Google widevine decryption for DRM (Netflix etc)
 user_pref('media.peerconnection.ice.default_address_only', false); // o Limit Google WebRTC IP leaks
 user_pref('media.peerconnection.ice.no_host', false); // o Limit Google WebRTC IP leaks
-
 user_pref('media.peerconnection.ice.proxy_only_if_behind_proxy', false); // o limit Google WebRTC IP leaks
 //user_pref("network.cookie.cookieBehavior", 3);                                             // x Block Unvisited cookies 3 / Cross-site cookies [4]
 user_pref('security.family_safety.mode', 0); // x Don't allow MitM by Microsoft Family Safety [2]
@@ -836,7 +809,7 @@ user_pref('browser.newtabpage.activity-stream.showSponsoredTopSites', false); //
 user_pref('browser.search.suggest.enabled', true); // o Search suggestions master toggle
 user_pref('browser.search.update', true); // o Search engine updates - ebay needs an update atm
 user_pref('browser.uitour.enabled', false); // o Firefox Tour
-user_pref('browser.urlbar.autoFill', false); // x Disable urlbar autofill with domain extension
+user_pref('browser.urlbar.autoFill', true); // x Disable urlbar autofill with domain extension
 user_pref('browser.urlbar.speculativeConnect.enabled', false); // o Speculative connections from urlbar
 user_pref('browser.urlbar.suggest.searches', true); // o Previous searches suggestions
 user_pref('browser.urlbar.suggest.engines', false); // o Search engines in the urlbar (tab2search)
@@ -855,43 +828,33 @@ user_pref('app.update.silent', false); // o Hide update UI prompts
 user_pref('nglayout.enable_drag_images', false); // o Tab drag without preview
 user_pref('privacy.trackingprotection.fingerprinting.enabled', true); // o Block known fingerprinters OR uBlock Origin
 user_pref('privacy.donottrackheader.enabled', true); // x Send websites a Do Not Track signal
+user_pref('signon.firefoxRelay.feature', ''); // unselect suggestions from Firefox Relay for clean UI
+user_pref("browser.startup.homepage_override.mstone", "ignore");                           // x "Your Firefox is up to date" homepage override
 
-/*all credits go to the rightful owner
-https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db
-
-https://github.com/yokoffing/Betterfox
-
-https://codeberg.org/Narsil/user.js/src/branch/main/desktop/user.js
-
-https://github.com/arkenfox/user.js
-
-https://github.com/pyllyukko/user.js
-
-https://github.com/AveYo/fox
+/*BORROWS HEAVILY FROM
+[1] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db
+[2] https://github.com/yokoffing/Betterfox
+[3] https://codeberg.org/Narsil/user.js/src/branch/main/desktop/user.js
+[4] https://github.com/arkenfox/user.js
+[5] https://github.com/pyllyukko/user.js
+[6]https://github.com/AveYo/fox / https://pastebin.com/raw/y5NvtjmD
 //other references that i used for smooth scroll
 
-https://groups.google.com/g/mozilla.dev.platform/c/hcEqovQrBts
+[1] https://groups.google.com/g/mozilla.dev.platform/c/hcEqovQrBts
 
-https://admx.help/?Category=FrontMotion&Policy=FrontMotion.Policies.
+[2] https://admx.help/?Category=FrontMotion&Policy=FrontMotion.Policies.Firefox::GENERAL_SMOOTHSCROLL_DURATIONTOINTERVALRATIO
 
-Firefox::GENERAL_SMOOTHSCROLL_DURATIONTOINTERVALRATIO
+[3] https://superuser.com/questions/922055/changing-firefox-smooth-scroll-settings-using-aboutconfig-to-be-like-default
 
-https://superuser.com/questions/922055/
+[4] https://new.reddit.com/r/firefox/comments/13gdu1k/smooth_scrolling_on_firefox_is_not_really_smooth/
 
-changing-firefox-smooth-scroll-settings-using-aboutconfig-to-be-like-default
+[5] https://new.reddit.com/r/firefox/comments/bvfqtp/these_are_the_smooth_scrolling_tweaks_i_play/
 
-https://new.reddit.com/r/firefox/comments/13gdu1k/smooth_scrolling_on_firefox_is_not_really_smooth/
+[6] https://new.reddit.com/r/firefox/comments/kojli8/actually_smooth_scrolling_for_firefox_now/
 
-https://new.reddit.com/r/firefox/comments/bvfqtp/these_are_the_smooth_scrolling_tweaks_i_play/
+[7] https://discuss.techlore.tech/t/questions-about-firefox-configuration-hardening/8928/3
 
-https://new.reddit.com/r/firefox/comments/kojli8/actually_smooth_scrolling_for_firefox_now/
+[8] https://msfn.org/board/topic/31820-firefox-10-help-nglayoutinitialpaintdelay/
 
-https://discuss.techlore.tech/t/questions-about-firefox-configuration-hardening/8928/3
-
-https://msfn.org/board/topic/31820-firefox-10-help-nglayoutinitialpaintdelay/
-
-https://www.linuxquestions.org/questions/linux-software-2/nglayout-initialpaint-delay-in-firefox-3-x-x-823170/
-
+[9] https://www.linuxquestions.org/questions/linux-software-2/nglayout-initialpaint-delay-in-firefox-3-x-x-823170/
  */
-
-user_pref('signon.firefoxRelay.feature', ''); // unselect suggestions from Firefox Relay for clean UI
