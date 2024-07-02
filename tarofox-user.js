@@ -275,6 +275,7 @@ user_pref('findbar.highlightAll', true);
 user_pref('layout.word_select.eat_space_to_next_word', false);
 user_pref('privacy.partition.network_state', false);
 user_pref('browser.safebrowsing.blockedURIs.enabled', false);
+
 user_pref('network.ftp.enabled', true);
 user_pref('media.gmp-provider.enabled', false);
 user_pref('media.peerconnection.ice.no_host', true);
@@ -282,8 +283,8 @@ user_pref('extensions.formautofill.addresses.enabled', false);
 user_pref('extensions.formautofill.creditCards.enabled', false);
 user_pref('network.buffer.cache.size', 327680); // preferred=327680; default=32768 past: 262144
 user_pref('network.buffer.cache.count', 240); // preferred=240; default=24 past: 128
-user_pref('nglayout.initialpaint.delay', 3000); // default=5; used to be 250
-user_pref('nglayout.initialpaint.delay_in_oopif', 300); // default=5
+user_pref('nglayout.initialpaint.delay', 0); // default=5; used to be 250
+user_pref('nglayout.initialpaint.delay_in_oopif', 0); // default=5
 user_pref('media.cache_size', 2048000); // default=512000
 user_pref('identity.fxaccounts.enabled', false);
 user_pref('geo.provider.ms-windows-location', false); // [WINDOWS]
@@ -366,7 +367,7 @@ user_pref('browser.urlbar.quicksuggest.enabled', true);
 user_pref('browser.urlbar.suggest.searches', true);
 // -------------------------------------
 // Disable urlbar trending search suggestions [FF118+]
-user_pref('browser.urlbar.trending.featureGate', false);
+//user_pref('browser.urlbar.trending.featureGate', false);
 // Disable sending additional analytics to web servers
 user_pref('beacon.enabled', false);
 user_pref('privacy.resistFingerprinting', false); // [FF41+]
@@ -479,12 +480,15 @@ user_pref('browser.tabs.closeWindowWithLastTab', false);
 user_pref('browser.tabs.tabClipWidth', 999);
 user_pref('network.http.rcwn.enabled', false);
 user_pref('toolkit.legacyUserProfileCustomizations.stylesheets', true);
+
 user_pref('browser.firefox-view.search.enabled', true);
 user_pref('browser.firefox-view.virtual-list.enabled', true);
+
 user_pref('network.gio.supported-protocols', '');
 user_pref('network.proxy.failover_direct', false);
 user_pref('security.ssl.require_safe_negotiation', true);
 user_pref('dom.security.https_only_mode_send_http_background_request', false);
+
 user_pref('gfx.font_rendering.graphite.enabled', false);
 user_pref('javascript.options.asmjs', false);
 user_pref('javascript.options.ion', false);
@@ -503,6 +507,7 @@ user_pref('security.ssl3.rsa_aes_256_gcm_sha384', false); // no PFS
 user_pref('security.ssl3.rsa_aes_128_sha', false); // no PFS
 user_pref('security.ssl3.rsa_aes_256_sha', false); // no PFS
 user_pref('privacy.query_stripping.enabled', true); // [FF101+]
+
 user_pref('layout.css.font-visibility.trackingprotection', 1);
 user_pref('userchrome.floating-findbar-on-right.enabled', true);
 /*
@@ -511,22 +516,22 @@ user_pref('userchrome.floating-findbar-on-right.enabled', true);
  * general.smoothScroll.lines.durationMaxMS
  */
 //MS Edge smooth scrolling (not using msdPhysics)
-user_pref('general.smoothScroll.lines.durationMaxMS', 450); //400
+user_pref('general.smoothScroll.lines.durationMaxMS', 300); //400
 user_pref('general.smoothScroll.lines.durationMinMS', 300); //300
-user_pref('general.smoothScroll.mouseWheel.durationMaxMS', 300); //200
-user_pref('general.smoothScroll.mouseWheel.durationMinMS', 250); //250
-user_pref('general.smoothScroll.other.durationMaxMS', 400);
+user_pref('general.smoothScroll.mouseWheel.durationMaxMS', 200); //200
+user_pref('general.smoothScroll.mouseWheel.durationMinMS', 200); //250
+user_pref('general.smoothScroll.other.durationMaxMS', 300);
 user_pref('general.smoothScroll.other.durationMinMS', 300); //350
-user_pref('general.smoothScroll.pages.durationMaxMS', 350);
-user_pref('general.smoothScroll.pages.durationMinMS', 250); //250
-user_pref('general.smoothScroll.scrollbars.durationMaxMS', 500);
-user_pref('general.smoothScroll.scrollbars.durationMinMS', 300); //300
+user_pref('general.smoothScroll.pages.durationMaxMS', 300);
+user_pref('general.smoothScroll.pages.durationMinMS', 300); //250
+user_pref('general.smoothScroll.scrollbars.durationMaxMS', 350);
+user_pref('general.smoothScroll.scrollbars.durationMinMS', 350); //300
 user_pref("browser.cache.offline.enable", true); // o Offline cache
 user_pref('mousewheel.min_line_scroll_amount', 10);
-user_pref('toolkit.scrollbox.horizontalScrollDistance', 3);
-user_pref('toolkit.scrollbox.verticalScrollDistance', 3);
-user_pref('general.smoothScroll.pixels.durationMaxMS', 450); //600OP SETTINGS
-user_pref('general.smoothScroll.pixels.durationMinMS', 350); //OP SETTINGS//250
+user_pref('toolkit.scrollbox.horizontalScrollDistance', 4);
+user_pref('toolkit.scrollbox.verticalScrollDistance', 4);
+user_pref('general.smoothScroll.pixels.durationMaxMS', 300); //600OP SETTINGS
+user_pref('general.smoothScroll.pixels.durationMinMS', 300); //OP SETTINGS//250
 user_pref('general.smoothScroll.stopDecelerationWeighting', '0.2'); // NSS  "0.4"          reduce stutter             [0.4]
 user_pref('mousewheel.acceleration.factor', 2); //       10 //ENABKE
 user_pref('mousewheel.acceleration.start', -1); //       -1
@@ -540,32 +545,36 @@ user_pref('apz.windows.use_direct_manipulation', true); //     true
 user_pref('dom.event.wheel-deltaMode-lines.always-disabled', true); //   false
 user_pref('general.smoothScroll.durationToIntervalRatio', 300); //      200
 user_pref('general.smoothScroll.mouseWheel.migrationPercent', 100); //     100
-user_pref('layers.async-pan-zoom.enabled', false); ///     true
-user_pref('layout.css.scroll-behavior.spring-constant', '250.0'); //   "250.0"
+user_pref('layers.async-pan-zoom.enabled', true); ///     true
+user_pref('layout.css.scroll-behavior.spring-constant', "300.0"); //   "250.0"
 //test
 user_pref('dom.image-lazy-loading.enabled', true);
+//WITH MSD SCROLLING
+
 ///  NATURAL SMOOTH SCROLLING V4 "SHARP" - AveYo, 2020-2022             preset     [default]
 ///  copy into firefox/librewolf profile as user.js, add to existing, or set in about:config
 user_pref('general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS', 100); //NSS    [120]
-user_pref('general.smoothScroll.msdPhysics.enabled', true); //NSS  [false]
-user_pref('general.smoothScroll.msdPhysics.motionBeginSpringConstant', 400); //NSS   [1250]
+user_pref('general.smoothScroll.msdPhysics.enabled', false); //NSS  [false]
+user_pref('general.smoothScroll.msdPhysics.motionBeginSpringConstant', 600); //NSS   [1250]
 //user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 250); //NSS   [1000]
 user_pref('general.smoothScroll.msdPhysics.regularSpringConstant', 450);
 //user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25); //NSS     [12]
 user_pref('general.smoothScroll.msdPhysics.slowdownMinDeltaMS', 15);
-user_pref('general.smoothScroll.msdPhysics.slowdownMinDeltaRatio', 2.0); //NSS    [1.3]
+user_pref('general.smoothScroll.msdPhysics.slowdownMinDeltaRatio', 1.8); //NSS    [1.3]
 //user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 450); //NSS default 250  [2000]
-user_pref('general.smoothScroll.msdPhysics.slowdownSpringConstant', 200);
-user_pref('general.smoothScroll.currentVelocityWeighting', '0.15'); //NSS ["0.25"]
+user_pref('general.smoothScroll.msdPhysics.slowdownSpringConstant', 800);
+
+
+user_pref('general.smoothScroll.currentVelocityWeighting', '0.25'); //NSS ["0.25"]
 user_pref('browser.urlbar.openintab', true);
 user_pref('browser.search.openintab', true);
 user_pref('devtools.debugger.prompt-connection', false);
 user_pref('browser.display.use_system_colors', false);
 user_pref('gfx.direct3d11.reuse-decoder-device', false);
 user_pref('media.wmf.zero-copy-nv12-textures', false);
-user_pref('toolkit.scrollbox.scrollIncrement', 200); // Adjust this value to your preference
+user_pref('toolkit.scrollbox.scrollIncrement', 150); // Adjust this value to your preference
 user_pref('general.smoothScroll.curve', 'easeInOutCubic');
-user_pref('general.smoothScroll.stopDecelerationAfterTouchWeighting', '0.3');
+user_pref('general.smoothScroll.stopDecelerationAfterTouchWeighting', '0.4');
 user_pref('apz.overscroll.enabled', true); // DEFAULT NON-LINUX
 user_pref('general.smoothScroll', true);
 user_pref(
