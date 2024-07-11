@@ -151,17 +151,13 @@ user_pref('security.mixed_content.upgrade_display_content', true);
 user_pref('security.mixed_content.upgrade_display_content.image', true);
 user_pref('pdfjs.enableScripting', false);
 user_pref('extensions.postDownloadThirdPartyPrompt', false);
-
 /** HEADERS / REFERERS ***/
 user_pref('network.http.referer.XOriginTrimmingPolicy', 2);
-
 /** CONTAINERS ***/
 user_pref('privacy.userContext.ui.enabled', true);
-
 /** WEBRTC ***/
 user_pref('media.peerconnection.ice.proxy_only_if_behind_proxy', true);
 user_pref('media.peerconnection.ice.default_address_only', true);
-
 /** SAFE BROWSING ***/
 user_pref('browser.safebrowsing.downloads.remote.enabled', false);
 
@@ -468,8 +464,8 @@ user_pref('dom.ipc.processPriorityManager.backgroundUsesEcoQoS', false);
 user_pref('browser.startup.preXulSkeletonUI', false);
 user_pref('dom.iframe_lazy_loading.enabled', true); //
 user_pref('browser.sessionhistory.max_total_viewers', 4);
-user_pref('network.http.pacing.requests.burst', 20); // default=10
-user_pref('dom.ipc.processCount', 3); // DEFAULT; Shared Web Content
+user_pref('network.http.pacing.requests.burst', 15); // default=10
+user_pref('dom.ipc.processCount', 5); // DEFAULT; Shared Web Content
 user_pref('dom.ipc.processCount.webIsolated', 3); // default=4; Isolated Web Content
 //user_pref("dom.ipc.processPrelaunch.fission.number", 1); // default=3; Process Preallocation Cache
 
@@ -516,14 +512,14 @@ user_pref('userchrome.floating-findbar-on-right.enabled', true);
  * general.smoothScroll.lines.durationMaxMS
  */
 //MS Edge smooth scrolling (not using msdPhysics)
-user_pref('general.smoothScroll.lines.durationMaxMS', 300); //400
-user_pref('general.smoothScroll.lines.durationMinMS', 300); //300
+user_pref('general.smoothScroll.lines.durationMaxMS', 500); //400
+user_pref('general.smoothScroll.lines.durationMinMS', 500); //300
 user_pref('general.smoothScroll.mouseWheel.durationMaxMS', 200); //200
 user_pref('general.smoothScroll.mouseWheel.durationMinMS', 200); //250
-user_pref('general.smoothScroll.other.durationMaxMS', 300);
-user_pref('general.smoothScroll.other.durationMinMS', 300); //350
-user_pref('general.smoothScroll.pages.durationMaxMS', 300);
-user_pref('general.smoothScroll.pages.durationMinMS', 300); //250
+user_pref('general.smoothScroll.other.durationMaxMS', 400);
+user_pref('general.smoothScroll.other.durationMinMS', 400); //350
+user_pref('general.smoothScroll.pages.durationMaxMS', 400);
+user_pref('general.smoothScroll.pages.durationMinMS', 400); //250
 user_pref('general.smoothScroll.scrollbars.durationMaxMS', 350);
 user_pref('general.smoothScroll.scrollbars.durationMinMS', 350); //300
 user_pref("browser.cache.offline.enable", true); // o Offline cache
@@ -533,7 +529,7 @@ user_pref('toolkit.scrollbox.verticalScrollDistance', 4);
 user_pref('general.smoothScroll.pixels.durationMaxMS', 300); //600OP SETTINGS
 user_pref('general.smoothScroll.pixels.durationMinMS', 300); //OP SETTINGS//250
 user_pref('general.smoothScroll.stopDecelerationWeighting', '0.2'); // NSS  "0.4"          reduce stutter             [0.4]
-user_pref('mousewheel.acceleration.factor', 2); //       10 //ENABKE
+user_pref('mousewheel.acceleration.factor', 2); //       10 //ENABLE
 user_pref('mousewheel.acceleration.start', -1); //       -1
 user_pref('mousewheel.default.delta_multiplier_x', 100); //      100
 user_pref('mousewheel.default.delta_multiplier_y', 100); //NSS    [100]
@@ -554,7 +550,7 @@ user_pref('dom.image-lazy-loading.enabled', true);
 ///  NATURAL SMOOTH SCROLLING V4 "SHARP" - AveYo, 2020-2022             preset     [default]
 ///  copy into firefox/librewolf profile as user.js, add to existing, or set in about:config
 user_pref('general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS', 100); //NSS    [120]
-user_pref('general.smoothScroll.msdPhysics.enabled', false); //NSS  [false]
+user_pref('general.smoothScroll.msdPhysics.enabled', true); //NSS  [false]
 user_pref('general.smoothScroll.msdPhysics.motionBeginSpringConstant', 600); //NSS   [1250]
 //user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 250); //NSS   [1000]
 user_pref('general.smoothScroll.msdPhysics.regularSpringConstant', 450);
@@ -648,7 +644,7 @@ user_pref('browser.slowStartup.maxSamples', 5); // o Slow startup max samples [5
 user_pref('browser.slowStartup.samples', 2); // o Slow startup min samples [2]
 user_pref('dom.vibrator.enabled', false); // o Shaking the screen effect
 user_pref('ui.key.menuAccessKey', 0); // // Alt key does not toggle the menu bar
-user_pref('ui.systemUsesDarkTheme', 1); // / Fake system dark theme
+//user_pref('ui.systemUsesDarkTheme', 1); // / Fake system dark theme
 user_pref('media.peerconnection.ice.default_address_only', false); // o Limit Google WebRTC IP leaks
 user_pref('media.peerconnection.ice.no_host', false); // o Limit Google WebRTC IP leaks
 user_pref('media.peerconnection.ice.proxy_only_if_behind_proxy', false); // o limit Google WebRTC IP leaks
