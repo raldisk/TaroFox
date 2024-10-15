@@ -91,7 +91,7 @@ user_pref("network.http.pacing.requests.enabled", true);
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
 
-user_pref("browser.contentblocking.category", "standard");
+user_pref("browser.contentblocking.category", "custom");
 user_pref(
     "urlclassifier.trackingSkipURLs",
     "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com",
@@ -106,7 +106,8 @@ user_pref("browser.download.start_downloads_in_tmp_dir", true);
 user_pref("browser.helperApps.deleteTempFileOnExit", true);
 user_pref("browser.uitour.enabled", false);
 user_pref("privacy.globalprivacycontrol.enabled", true);
-
+user_pref("privacy.globalprivacycontrol.functionality.enabled", true); // [FF120+]
+user_pref("privacy.globalprivacycontrol.pbmode.enabled", true); // [FF120+]
 /** OCSP & CERTS / HPKP ***/
 user_pref("security.OCSP.enabled", 0);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
@@ -128,8 +129,8 @@ user_pref("privacy.history.custom", true);
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.urlbar.update2.engineAliasRefresh", true);
 user_pref("browser.search.suggest.enabled", true);
-//user_pref('browser.urlbar.suggest.quicksuggest.sponsored', false);
-//user_pref('browser.urlbar.suggest.quicksuggest.nonsponsored', false);
+user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.formfill.enable", false);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
@@ -240,9 +241,13 @@ user_pref("full-screen-api.warning.delay", 0);
 user_pref("full-screen-api.warning.timeout", 0);
 
 /** URL BAR ***/
-user_pref("browser.urlbar.suggest.calculator", false);
-user_pref("browser.urlbar.unitConversion.enabled", false);
+user_pref("browser.urlbar.suggest.calculator", true);
+user_pref("browser.urlbar.unitConversion.enabled", true);
 user_pref("browser.urlbar.trending.featureGate", false);
+user_pref("browser.urlbar.quickactions.enabled", false);
+user_pref("browser.urlbar.shortcuts.quickactions", false);
+user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
+user_pref("browser.urlbar.weather.ignoreVPN", false); // DEFAULT
 
 /** NEW TAB PAGE ***/
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
@@ -273,10 +278,11 @@ user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
 user_pref("network.buffer.cache.size", 327680); // preferred=327680; default=32768 past: 262144
 user_pref("network.buffer.cache.count", 240); // preferred=240; default=24 past: 128
-user_pref("nglayout.initialpaint.delay", 3); // default=5; used to be 250
-user_pref("nglayout.initialpaint.delay_in_oopif", 3); // default=5
+user_pref("nglayout.initialpaint.delay", 5); // default=5; used to be 250
+user_pref("nglayout.initialpaint.delay_in_oopif", 5); // default=5
 user_pref("media.cache_size", 2048000); // default=512000
 user_pref("identity.fxaccounts.enabled", false);
+user_pref("identity.fxaccounts.autoconfig.uri", "");
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 // Disable region updates
 user_pref("browser.region.network.url", ""); // [FF78+] Defense-in-depth
@@ -364,7 +370,7 @@ user_pref("browser.urlbar.suggest.searches", true);
 //user_pref('browser.urlbar.trending.featureGate', false);
 // Disable sending additional analytics to web servers
 user_pref("beacon.enabled", false);
-user_pref("privacy.resistFingerprinting", false); // [FF41+]
+user_pref("privacy.resistFingerprinting", true); // [FF41+]
 user_pref("fission.autostart", false);
 user_pref("privacy.fingerprintingProtection", true);
 user_pref("privacy.resistFingerprinting.randomization.enabled", true);
@@ -466,8 +472,8 @@ user_pref("browser.startup.preXulSkeletonUI", false);
 user_pref("dom.iframe_lazy_loading.enabled", true); //
 user_pref("browser.sessionhistory.max_total_viewers", 4);
 user_pref("network.http.pacing.requests.burst", 15); // default=10
-user_pref("dom.ipc.processCount", 5); // DEFAULT; Shared Web Content
-user_pref("dom.ipc.processCount.webIsolated", 3); // default=4; Isolated Web Content
+user_pref("dom.ipc.processCount", 3); // DEFAULT; Shared Web Content
+user_pref("dom.ipc.processCount.webIsolated", 1); // default=4; Isolated Web Content
 //user_pref("dom.ipc.processPrelaunch.fission.number", 1); // default=3; Process Preallocation Cache
 
 user_pref("apz.frame_delay.enabled", false);
@@ -504,6 +510,9 @@ user_pref("security.ssl3.rsa_aes_256_gcm_sha384", false); // no PFS
 user_pref("security.ssl3.rsa_aes_128_sha", false); // no PFS
 user_pref("security.ssl3.rsa_aes_256_sha", false); // no PFS
 user_pref("privacy.query_stripping.enabled", true); // [FF101+]
+user_pref("privacy.query_stripping.enabled.pbmode", true); // enabled with "Strict"
+user_pref("privacy.query_stripping.strip_list", ""); // DEFAULT
+user_pref("privacy.query_stripping.strip_on_share.enabled", true);
 
 user_pref("layout.css.font-visibility.trackingprotection", 1);
 user_pref("userchrome.floating-findbar-on-right.enabled", true);
@@ -513,21 +522,21 @@ user_pref("userchrome.floating-findbar-on-right.enabled", true);
  * general.smoothScroll.lines.durationMaxMS
  */
 //MS Edge smooth scrolling (not using msdPhysics)
-user_pref("general.smoothScroll.lines.durationMaxMS", 300); //400
-user_pref("general.smoothScroll.lines.durationMinMS", 300); //300
-user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 200); //200
-user_pref("general.smoothScroll.mouseWheel.durationMinMS", 200); //250
-user_pref("general.smoothScroll.other.durationMaxMS", 300);
-user_pref("general.smoothScroll.other.durationMinMS", 300); //350
-user_pref("general.smoothScroll.pages.durationMaxMS", 300);
-user_pref("general.smoothScroll.pages.durationMinMS", 300); //250
-user_pref("general.smoothScroll.scrollbars.durationMaxMS", 300);
-user_pref("general.smoothScroll.scrollbars.durationMinMS", 300); //300
+user_pref("general.smoothScroll.lines.durationMaxMS", 350); //400
+user_pref("general.smoothScroll.lines.durationMinMS", 350); //300
+user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 250); //200
+user_pref("general.smoothScroll.mouseWheel.durationMinMS", 250); //250
+user_pref("general.smoothScroll.other.durationMaxMS", 200);
+user_pref("general.smoothScroll.other.durationMinMS", 200); //350
+user_pref("general.smoothScroll.pages.durationMaxMS", 200);
+user_pref("general.smoothScroll.pages.durationMinMS", 200); //250
+user_pref("general.smoothScroll.scrollbars.durationMaxMS", 400);
+user_pref("general.smoothScroll.scrollbars.durationMinMS", 400); //300
 user_pref("browser.cache.offline.enable", true); // o Offline cache
 user_pref("mousewheel.min_line_scroll_amount", 10);
 user_pref("toolkit.scrollbox.horizontalScrollDistance", 4);
 user_pref("toolkit.scrollbox.verticalScrollDistance", 4);
-user_pref("general.smoothScroll.pixels.durationMaxMS", 600); //600OP SETTINGS
+user_pref("general.smoothScroll.pixels.durationMaxMS", 300); //600OP SETTINGS
 user_pref("general.smoothScroll.pixels.durationMinMS", 300); //OP SETTINGS//250
 user_pref("general.smoothScroll.stopDecelerationWeighting", "0.2"); // NSS  "0.4"          reduce stutter             [0.4]
 user_pref("mousewheel.acceleration.factor", 2); //       10 //ENABLE
@@ -540,28 +549,27 @@ user_pref("apz.force_disable_desktop_zooming_scrollbars", true); // false
 user_pref("apz.paint_skipping.enabled", false); ///     true
 user_pref("apz.windows.use_direct_manipulation", true); //     true
 user_pref("dom.event.wheel-deltaMode-lines.always-disabled", true); //   false
-user_pref("general.smoothScroll.durationToIntervalRatio", 250); //      200
+user_pref("general.smoothScroll.durationToIntervalRatio", 300); //      200
 user_pref("general.smoothScroll.mouseWheel.migrationPercent", 100); //     100
 user_pref("layers.async-pan-zoom.enabled", true); ///     true
 user_pref("layout.css.scroll-behavior.spring-constant", "300.0"); //   "250.0"
 //test
 user_pref("dom.image-lazy-loading.enabled", true);
 //WITH MSD SCROLLING
-
 ///  NATURAL SMOOTH SCROLLING V4 "SHARP" - AveYo, 2020-2022             preset     [default]
 ///  copy into firefox/librewolf profile as user.js, add to existing, or set in about:config
-user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 100); //NSS    [120]
-user_pref("general.smoothScroll.msdPhysics.enabled", true); //NSS  [false]
-user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 600); //NSS   [1250]
+user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 8); //NSS    [120]
+user_pref("general.smoothScroll.msdPhysics.enabled", false); //NSS  [false]
+user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 700); //NSS   [1250]
 //user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 250); //NSS   [1000]
-user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 450);
+user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 250);
 //user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25); //NSS     [12]
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 15);
-user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 1.8); //NSS    [1.3]
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 1.3); //NSS    [1.3]
 //user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 450); //NSS default 250  [2000]
-user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 700);
+user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 300);
 
-user_pref("general.smoothScroll.currentVelocityWeighting", "0.25"); //NSS ["0.25"]
+user_pref("general.smoothScroll.currentVelocityWeighting", "0.15"); //NSS ["0.25"]
 user_pref("browser.urlbar.openintab", true);
 user_pref("browser.search.openintab", true);
 user_pref("devtools.debugger.prompt-connection", false);
@@ -718,10 +726,12 @@ user_pref("browser.urlbar.doubleClickSelectsAll", true); // x Select all url on 
 user_pref("browser.urlbar.formatting.enabled", false); // o Domain highlight that makes full url hard to read
 //user_pref("browser.urlbar.switchTabs.adoptIntoActiveWindow", true);                      // / Search in active tabs pulls tab from all windows
 user_pref("browser.urlbar.trimURLs", true); // o Display all parts of the url in the urlbar
-user_pref("image.animation_mode", "once"); // / GIF loop once - improves perf a lot
-//user_pref("intl.accept_languages", "en-US, en");                                         // / Set preferred language for displaying web pages
-//user_pref("javascript.use_us_english_locale", true);                                     // / Enforce US English regardless of system locale
+user_pref("image.animation_mode", "normal"); // / GIF loop once - improves perf a lot
+user_pref("intl.accept_languages", "en-US, en"); // / Set preferred language for displaying web pages
+user_pref("javascript.use_us_english_locale", true); // / Enforce US English regardless of system locale
 user_pref("network.dns.echconfig.enabled", true); // x Enable Encrypted Client Hello
+user_pref("network.dns.http3_echconfig.enabled", true); // use ECH for QUIC connections
+user_pref("network.dns.echconfig.fallback_to_origin_when_all_failed", false); // fallback to non-ECH without an authenticated downgrade signal
 user_pref("network.http.http3.enabled", true); // x Enable HTTP3
 //// SPONSORED
 user_pref("browser.discovery.enabled", false); // o Personalized recommendations
@@ -754,8 +764,8 @@ user_pref(
     '{"id":"snippets","enabled":false}',
 );
 user_pref(
-    "browser.newtabpage.activity-stream.asrouter.providers.whats-new-panel",
     '{"id":"whats-new-panel","enabled":false}',
+    "browser.newtabpage.activity-stream.asrouter.providers.whats-new-panel",
 );
 user_pref("browser.newtabpage.activity-stream.asrouter.useRemoteL10n", false); // o Online translate entries
 user_pref(
@@ -781,7 +791,7 @@ user_pref(
     "browser.newtabpage.activity-stream.feeds.recommendationproviderswitcher",
     false,
 ); // o Refresh recommendations when provider changes
-//user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);         // / Highlights section entries
+user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false); // / Highlights section entries
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // o Top Stories section entries
 user_pref(
     "browser.newtabpage.activity-stream.feeds.section.topstories.options",
@@ -790,8 +800,8 @@ user_pref(
 user_pref("browser.newtabpage.activity-stream.feeds.sections", true); // x All sections entries master toggle
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false); // o Snippets entries
 user_pref("browser.newtabpage.activity-stream.feeds.system.topstories", false); // o Top Stories no refresh
-//user_pref("browser.newtabpage.activity-stream.feeds.system.topsites", false);            // / Top Sites no refresh
-//user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);                   // / Top Sites entries
+user_pref("browser.newtabpage.activity-stream.feeds.system.topsites", false); // / Top Sites no refresh
+user_pref("browser.newtabpage.activity-stream.feeds.topsites", false); // / Top Sites entries
 user_pref(
     "browser.newtabpage.activity-stream.improvesearch.handoffToAwesomebar",
     true,
@@ -814,11 +824,12 @@ user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); //
 user_pref("browser.search.suggest.enabled", true); // o Search suggestions master toggle
 user_pref("browser.search.update", true); // o Search engine updates - ebay needs an update atm
 user_pref("browser.uitour.enabled", false); // o Firefox Tour
+user_pref("browser.uitour.url", "");
 user_pref("browser.urlbar.autoFill", true); // x Disable urlbar autofill with domain extension
 user_pref("browser.urlbar.speculativeConnect.enabled", false); // o Speculative connections from urlbar
 user_pref("browser.urlbar.suggest.searches", true); // o Previous searches suggestions
 user_pref("browser.urlbar.suggest.engines", false); // o Search engines in the urlbar (tab2search)
-//user_pref("browser.urlbar.update2.oneOffsRefresh", false);                               // o Search in alternative engine v83 new annoyance
+user_pref("browser.urlbar.update2.oneOffsRefresh", false); // o Search in alternative engine v83 new annoyance
 user_pref("extensions.getAddons.showPane", false); // o Get Add-ons recommendations
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false); // o Html about:addons recommendations
 user_pref("extensions.pocket.enabled", false); // o Pocket extension
@@ -828,7 +839,7 @@ user_pref("startup.homepage_welcome_url.additional", ""); // o Welcome additiona
 //// UPDATE
 user_pref("app.update.service.enabled", false); // o Use a background service to install updates
 user_pref("app.update.silent", false); // o Hide update UI prompts
-user_pref("extensions.systemAddon.update.enabled", false); // / System Add-ons update
+user_pref("extensions.systemAddon.update.enabled", true); // / System Add-ons update
 //user_pref("extensions.update.autoUpdateDefault", false);                                 // / Update Add-ons Automatically
 user_pref("nglayout.enable_drag_images", false); // o Tab drag without preview
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true); // o Block known fingerprinters OR uBlock Origin
@@ -947,6 +958,89 @@ user_pref("security.certerrors.mitm.priming.endpoint", "");
 user_pref("security.pki.mitm_canary_issuer", "");
 user_pref("security.pki.mitm_canary_issuer.enabled", false);
 user_pref("security.pki.mitm_detected", false);
+user_pref("network.http.pipelining", true);
+user_pref("network.http.pipelining.firstrequest", true);
+user_pref("network.http.pipelining.maxrequests", 32);
+user("network.http.proxy.pipelining", true);
+user_pref("privacy.trackingprotection.lower_network_priority", true);
+// PREF: Network Partitioning
+// Networking-related APIs are not intended to be used for websites to store data, but they can be abused for
+// cross-site tracking. Network APIs and caches are permanently partitioned by the top-level site.
+// Network Partitioning (isolation) will allow Firefox to associate resources on a per-website basis rather than together
+// in the same pool. This includes cache, favicons, CSS files, images, and even speculative connections.
+// [1] https://www.zdnet.com/article/firefox-to-ship-network-partitioning-as-a-new-anti-tracking-defense/
+// [2] https://developer.mozilla.org/en-US/docs/Web/Privacy/State_Partitioning#network_partitioning
+// [3] https://blog.mozilla.org/security/2021/01/26/supercookie-protections/
+user_pref("privacy.partition.network_state", true); // DEFAULT
+user_pref("privacy.partition.serviceWorkers", true); // [DEFAULT: true FF105+]
+user_pref("privacy.partition.network_state.ocsp_cache", true); // enabled with "Strict" [DEFAULT: true FF123+]
+user_pref("privacy.partition.bloburl_per_partition_key", true); // [FF118+]
+// enable APS (Always Partitioning Storage) [FF104+]
+user_pref(
+    "privacy.partition.always_partition_third_party_non_cookie_storage",
+    true,
+); // [DEFAULT: true FF109+]
+user_pref(
+    "privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage",
+    false,
+); // [DEFAULT: false FF109+]
+
+// PREF: Bounce Tracking Protection [FF127+]
+// A new standardised variant of Cookie Purging that uses heuristics to detect bounce trackers,
+// rather than relying on tracker lists.
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1895222
+// [2] https://groups.google.com/a/mozilla.org/g/dev-platform/c/M6erM0SjPTM
+user_pref("privacy.bounceTrackingProtection.enabled", true);
+user_pref("privacy.bounceTrackingProtection.enableDryRunMode", false); // false enables tracker data purging
+
+// PREF: disable content analysis by DLP (Data Loss Prevention) agents [FF124+]
+// DLP agents are background processes on managed computers that allow enterprises to monitor locally running
+// applications for data exfiltration events, which they can allow/block based on customer defined DLP policies.
+// [1] https://github.com/chromium/content_analysis_sdk
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1880314
+user_pref("browser.contentanalysis.enabled", false); // [FF121+] [DEFAULT]
+user_pref("browser.contentanalysis.default_result", 0); // [FF127+] [DEFAULT]
+
+// PREF: enable FingerPrint Protection (FPP) [WiP]
+// [1] https://github.com/arkenfox/user.js/issues/1661
+// [2] https://bugzilla.mozilla.org/show_bug.cgi?id=1816064
+user_pref(
+    "privacy.resistFingerprinting.randomization.daily_reset.enabled",
+    true,
+);
+user_pref(
+    "privacy.resistFingerprinting.randomization.daily_reset.private.enabled",
+    true,
+);
+
+// PREF: trim HTTPS from the URL bar [FF119+]
+// Firefox will hide https:// from the address bar, but not subdomains like www.
+// It saves some space. Betterfox already uses HTTPS-by-Default and insecure sites
+// get a padlock with a red stripe. Copying the URL still copies the scheme,
+// so it's not like we need to see https. It's not a privacy issue, so you can add to your overrides.
+// [TEST] http://www.http2demo.io/
+// [1] https://www.ghacks.net/2023/09/19/firefox-119-will-launch-with-an-important-address-bar-change/
+user_pref("browser.urlbar.trimHttps", true);
+user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
+user_pref("network.trr.max-fails", 5); // default=15
+user_pref("network.trr.mode", 5); // DEFAULT
+// PREF: EDNS Client Subnet (ECS)
+// [WARNING] In some circumstances, enabling ECS may result
+// in suboptimal routing between CDN origins and end users [2].
+// [NOTE] You will also need to enable this with your
+// DoH provider most likely.
+// [1] https://en.wikipedia.org/wiki/EDNS_Client_Subnet
+// [2] https://www.quad9.net/support/faq/#edns
+// [3] https://datatracker.ietf.org/doc/html/rfc7871
+user_pref("network.trr.disable-ECS", true); // DEFAULT
+user_pref("browser.disableResetPrompt", true); // x Prevent Reset Firefox prompt
+//SECURITY ADD
+user_pref("browser.fixup.alternate.enabled", false); // o Location urlbar exploitable domain guessing
+user_pref("browser.launcherProcess.enabled", true); // x Block DLL Injections from antivirus & third-party
+//new OCT 11
+user_pref("mathml.disabled", true);
+user_pref("browser.urlbar.suggest.engines", false);
+user_pref("layout.css.visited_links_enabled", false);
 /*BORROWS HEAVILY FROM
 [1] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db
 [2] https://github.com/yokoffing/Betterfox
