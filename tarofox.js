@@ -242,6 +242,11 @@ user_pref("full-screen-api.warning.timeout", 0);
 
 /** URL BAR ***/
 user_pref("browser.urlbar.suggest.calculator", true);
+user_pref("browser.urlbar.addons.featureGate", false); // [FF115+]
+user_pref("browser.urlbar.mdn.featureGate", false); // [FF117+] [HIDDEN PREF]
+user_pref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: false]
+user_pref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
+user_pref("browser.urlbar.yelp.featureGate", false); // [FF124+] [DEFAULT: false]
 user_pref("browser.urlbar.unitConversion.enabled", true);
 user_pref("browser.urlbar.trending.featureGate", false);
 user_pref("browser.urlbar.quickactions.enabled", false);
@@ -362,9 +367,9 @@ user_pref("browser.safebrowsing.provider.mozilla.updateURL", "");
 // Disable location bar making speculative connections [FF56+]
 user_pref("browser.urlbar.speculativeConnect.enabled", false);
 // Disable live search suggestions
-user_pref("browser.search.suggest.enabled", true);
-user_pref("browser.urlbar.quicksuggest.enabled", true);
-user_pref("browser.urlbar.suggest.searches", true);
+user_pref("browser.search.suggest.enabled", false);
+user_pref("browser.urlbar.quicksuggest.enabled", false);
+user_pref("browser.urlbar.suggest.searches", false);
 // -------------------------------------
 // Disable urlbar trending search suggestions [FF118+]
 //user_pref('browser.urlbar.trending.featureGate', false);
@@ -821,13 +826,11 @@ user_pref(
 user_pref("browser.newtabpage.activity-stream.showSearch", false); // o Search pane -superfluous,  use urlbar instead
 user_pref("browser.newtabpage.activity-stream.showSponsored", false); // o Sponsored content
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // o Sponsored Top Sites
-user_pref("browser.search.suggest.enabled", true); // o Search suggestions master toggle
 user_pref("browser.search.update", true); // o Search engine updates - ebay needs an update atm
 user_pref("browser.uitour.enabled", false); // o Firefox Tour
 user_pref("browser.uitour.url", "");
 user_pref("browser.urlbar.autoFill", true); // x Disable urlbar autofill with domain extension
 user_pref("browser.urlbar.speculativeConnect.enabled", false); // o Speculative connections from urlbar
-user_pref("browser.urlbar.suggest.searches", true); // o Previous searches suggestions
 user_pref("browser.urlbar.suggest.engines", false); // o Search engines in the urlbar (tab2search)
 user_pref("browser.urlbar.update2.oneOffsRefresh", false); // o Search in alternative engine v83 new annoyance
 user_pref("extensions.getAddons.showPane", false); // o Get Add-ons recommendations
@@ -1024,6 +1027,10 @@ user_pref("browser.urlbar.trimHttps", true);
 user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
 user_pref("network.trr.max-fails", 5); // default=15
 user_pref("network.trr.mode", 5); // DEFAULT
+/* user_pref(
+    "networkk.trr.custom_uri",
+    https://au-syd.doh.sb/dns-query https://jp-nrt.doh.sb/dns-query https://sg-sin.doh.sb/dns-query https://kr-sel.doh.sb/dns-query https://anycast.dns.nextdns.io https://dns.nextdns.io https://doh.tiar.app/dns-query https://jp.tiar.app/dns-query https://dns.quad9.net/dns-query https://anycast.dns.nextdns.io https://dns.nextdns.io,
+); */
 // PREF: EDNS Client Subnet (ECS)
 // [WARNING] In some circumstances, enabling ECS may result
 // in suboptimal routing between CDN origins and end users [2].
