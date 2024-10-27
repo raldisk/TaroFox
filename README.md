@@ -1,2 +1,1 @@
-# TaroFox
-This repo combines user preferences from BetterFox, Rubenkelevra, Arkenfox, Narsil, AveYo, Pyllyukko, and more. its primary focus lies in enhancing speed, bolstering security, implementing UI improvements, enabling smooth scrolling, and ensuring privacy. Furthermore, users are encouraged to adapt and fine-tune these configurations to align with their individual preferences. Feel free to tailor the settings according to your own needs and requirements!
+Firefox custom user.js, for speed, security, smooth-scrolling and privacy
