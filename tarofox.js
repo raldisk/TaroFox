@@ -1027,10 +1027,10 @@ user_pref("browser.urlbar.trimHttps", true);
 user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
 user_pref("network.trr.max-fails", 5); // default=15
 user_pref("network.trr.mode", 5); // DEFAULT
-/* user_pref(
-    "networkk.trr.custom_uri",
-    https://au-syd.doh.sb/dns-query https://jp-nrt.doh.sb/dns-query https://sg-sin.doh.sb/dns-query https://kr-sel.doh.sb/dns-query https://anycast.dns.nextdns.io https://dns.nextdns.io https://doh.tiar.app/dns-query https://jp.tiar.app/dns-query https://dns.quad9.net/dns-query https://anycast.dns.nextdns.io https://dns.nextdns.io,
-); */
+user_pref(
+    "network.trr.custom_uri",
+    "https://au-syd.doh.sb/dns-query https://jp-nrt.doh.sb/dns-query https://sg-sin.doh.sb/dns-query https://kr-sel.doh.sb/dns-query https://anycast.dns.nextdns.io https://dns.nextdns.io https://doh.tiar.app/dns-query https://jp.tiar.app/dns-query https://dns.quad9.net/dns-query https://anycast.dns.nextdns.io https://dns.nextdns.io",
+);
 // PREF: EDNS Client Subnet (ECS)
 // [WARNING] In some circumstances, enabling ECS may result
 // in suboptimal routing between CDN origins and end users [2].
