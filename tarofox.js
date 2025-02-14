@@ -91,7 +91,7 @@ user_pref("network.http.pacing.requests.enabled", true);
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
 
-user_pref("browser.contentblocking.category", "custom");
+user_pref("browser.contentblocking.category", "standard");
 user_pref(
     "urlclassifier.trackingSkipURLs",
     "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com",
@@ -253,6 +253,7 @@ user_pref("browser.urlbar.quickactions.enabled", false);
 user_pref("browser.urlbar.shortcuts.quickactions", false);
 user_pref("browser.urlbar.suggest.weather", true); // DEFAULT [FF108]
 user_pref("browser.urlbar.weather.ignoreVPN", false); // DEFAULT
+user_pref("browser.urlbar.suggest.clipboard", false);
 
 /** NEW TAB PAGE ***/
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
@@ -404,7 +405,7 @@ user_pref("permissions.default.xr", 2); // Virtual Reality
 user_pref("extensions.systemAddon.update.enabled", false); // [FF62+]
 user_pref("extensions.systemAddon.update.url", ""); // [FF44+]
 // Enable the DNT (Do Not Track) HTTP header
-//user_pref("privacy.donottrackheader.enabled", false);
+user_pref("privacy.donottrackheader.enabled", false);
 user_pref("privacy.trackingprotection.enabled", true);
 
 // Disable auto-INSTALLING Firefox updates [NON-WINDOWS]
@@ -451,7 +452,7 @@ user_pref("browser.display.focus_ring_style", 0);
 user_pref("browser.display.focus_ring_width", 0);
 //
 //user_pref("gfx.font_rendering.cleartype_params.gamma", 1550);
-user_pref("gfx.font_rendering.cleartype_params.gamma", 1400);
+user_pref("gfx.font_rendering.cleartype_params.gamma", 1700);
 user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
 user_pref("gfx.font_rendering.cleartype_params.pixel_structure", 5); //default 1
 // PREF: use DirectWrite everywhere like Chrome [WINDOWS]
@@ -460,7 +461,7 @@ user_pref("gfx.font_rendering.cleartype_params.pixel_structure", 5); //default 1
 
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 //
-user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 20);
+user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref(
     "gfx.font_rendering.cleartype_params.force_gdi_classic_for_families",
     "",
@@ -529,8 +530,8 @@ user_pref("userchrome.floating-findbar-on-right.enabled", true);
 //MS Edge smooth scrolling (not using msdPhysics)
 user_pref("general.smoothScroll.lines.durationMaxMS", 350); //400
 user_pref("general.smoothScroll.lines.durationMinMS", 350); //300
-user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 250); //200
-user_pref("general.smoothScroll.mouseWheel.durationMinMS", 250); //250
+user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 100); //200
+user_pref("general.smoothScroll.mouseWheel.durationMinMS", 100); //250
 user_pref("general.smoothScroll.other.durationMaxMS", 200);
 user_pref("general.smoothScroll.other.durationMinMS", 200); //350
 user_pref("general.smoothScroll.pages.durationMaxMS", 200);
@@ -538,17 +539,17 @@ user_pref("general.smoothScroll.pages.durationMinMS", 200); //250
 user_pref("general.smoothScroll.scrollbars.durationMaxMS", 400);
 user_pref("general.smoothScroll.scrollbars.durationMinMS", 400); //300
 user_pref("browser.cache.offline.enable", true); // o Offline cache
-user_pref("mousewheel.min_line_scroll_amount", 10);
+user_pref("mousewheel.min_line_scroll_amount", 20);
 user_pref("toolkit.scrollbox.horizontalScrollDistance", 4);
 user_pref("toolkit.scrollbox.verticalScrollDistance", 4);
 user_pref("general.smoothScroll.pixels.durationMaxMS", 300); //600OP SETTINGS
 user_pref("general.smoothScroll.pixels.durationMinMS", 300); //OP SETTINGS//250
-user_pref("general.smoothScroll.stopDecelerationWeighting", "0.2"); // NSS  "0.4"          reduce stutter             [0.4]
+user_pref("general.smoothScroll.stopDecelerationWeighting", "0.6"); // NSS  "0.4"          reduce stutter             [0.4]
 user_pref("mousewheel.acceleration.factor", 2); //       10 //ENABLE
 user_pref("mousewheel.acceleration.start", -1); //       -1
-user_pref("mousewheel.default.delta_multiplier_x", 100); //      100
-user_pref("mousewheel.default.delta_multiplier_y", 100); //NSS    [100]
-user_pref("mousewheel.default.delta_multiplier_z", 100); //      100
+user_pref("mousewheel.default.delta_multiplier_x", 200); //      100
+user_pref("mousewheel.default.delta_multiplier_y", 200); //NSS    [100]
+user_pref("mousewheel.default.delta_multiplier_z", 250); //      100
 user_pref("apz.allow_zooming", true); //     true
 user_pref("apz.force_disable_desktop_zooming_scrollbars", true); // false
 user_pref("apz.paint_skipping.enabled", false); ///     true
@@ -564,17 +565,17 @@ user_pref("dom.image-lazy-loading.enabled", true);
 ///  NATURAL SMOOTH SCROLLING V4 "SHARP" - AveYo, 2020-2022             preset     [default]
 ///  copy into firefox/librewolf profile as user.js, add to existing, or set in about:config
 user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 8); //NSS    [120]
-user_pref("general.smoothScroll.msdPhysics.enabled", false); //NSS  [false]
-user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 700); //NSS   [1250]
+user_pref("general.smoothScroll.msdPhysics.enabled", true); //NSS  [false]
+user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 200); //NSS   [1250]
 //user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 250); //NSS   [1000]
 user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 250);
 //user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 25); //NSS     [12]
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 15);
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", 1.3); //NSS    [1.3]
 //user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 450); //NSS default 250  [2000]
-user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 300);
+user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 150);
 
-user_pref("general.smoothScroll.currentVelocityWeighting", "0.15"); //NSS ["0.25"]
+user_pref("general.smoothScroll.currentVelocityWeighting", "0.25"); //NSS ["0.25"]
 user_pref("browser.urlbar.openintab", true);
 user_pref("browser.search.openintab", true);
 user_pref("devtools.debugger.prompt-connection", false);
@@ -1026,10 +1027,10 @@ user_pref(
 user_pref("browser.urlbar.trimHttps", true);
 user_pref("browser.urlbar.untrimOnUserInteraction.featureGate", true);
 user_pref("network.trr.max-fails", 5); // default=15
-user_pref("network.trr.mode", 5); // DEFAULT
+user_pref("network.trr.mode", 2); // DEFAULT
 user_pref(
     "network.trr.custom_uri",
-    "https://au-syd.doh.sb/dns-query https://jp-nrt.doh.sb/dns-query https://sg-sin.doh.sb/dns-query https://kr-sel.doh.sb/dns-query https://anycast.dns.nextdns.io https://dns.nextdns.io https://doh.tiar.app/dns-query https://jp.tiar.app/dns-query https://dns.quad9.net/dns-query https://anycast.dns.nextdns.io https://dns.nextdns.io",
+    "https://jp-kix.doh.sb/dns-query https://sg-sin2.doh.sb/dns-query https://sg-sin.doh.sb/dns-query https://au-syd.doh.sb/dns-query https://jp-nrt.doh.sb/dns-query https://sg-sin.doh.sb/dns-query https://kr-sel.doh.sb/dns-query https://doh.tiar.app/dns-query https://jp.tiar.app/dns-query https://dns.quad9.net/dns-query https://jp-kix.doh.sb/dns-query https://185.222.222.222/dns-query https://45.11.45.11/dns-query https://doh.qis.io/dns-query https://dns.pumplex.com/dns-query",
 );
 // PREF: EDNS Client Subnet (ECS)
 // [WARNING] In some circumstances, enabling ECS may result
@@ -1048,6 +1049,12 @@ user_pref("browser.launcherProcess.enabled", true); // x Block DLL Injections fr
 user_pref("mathml.disabled", true);
 user_pref("browser.urlbar.suggest.engines", false);
 user_pref("layout.css.visited_links_enabled", false);
+//december 2024
+user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
+user_pref("accessibility.blockautorefresh", true);
+user_pref("browser.meta_refresh_when_inactive.disabled", true);
+user_pref("browser.tabs.min_inactive_duration_before_unload", 300000); // 5min; default=600000
+user_pref("browser.low_commit_space_threshold_mb", 3276); // default=200; WINDOWS LINUX
 /*BORROWS HEAVILY FROM
 [1] https://gist.github.com/RubenKelevra/fd66c2f856d703260ecdf0379c4f59db
 [2] https://github.com/yokoffing/Betterfox
